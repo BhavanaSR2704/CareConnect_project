@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Balaji Hospital — Tiptur</title>
+<style>
+  :root{
+    --bg1: #0b1e36;
+    --bg2: #020c1b;
+    --accent1: #00c6ff;
+    --accent2: #0072ff;
+    --glass: rgba(255,255,255,0.06);
+    --muted: rgba(255,255,255,0.85);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color:#fff;
+    background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+    line-height:1.5;
+  }
+
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 20px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0));
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(6px);
+  }
+  nav .brand{ display:flex; gap:12px; align-items:center; }
+  .logo{ width:40px; height:40px; border-radius:8px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); }
+  nav h1{ margin:0; font-size:1rem; letter-spacing:.2px; color:var(--accent1); }
+  nav .links a{ color:#fff; text-decoration:none; margin-left:18px; font-weight:600; opacity:.95; }
+  nav .links a:hover{ color:var(--accent1) }
+
+  .wrap{ max-width:1100px; margin:28px auto; padding:0 18px; }
+  .hero{ display:grid; grid-template-columns: 1fr 360px; gap:20px; align-items:start; }
+
+  .card{
+    background:var(--glass);
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px);
+  }
+
+  .hospital-title{
+    margin:0 0 8px 0;
+    font-size:1.6rem;
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .subtitle{ color:var(--muted); margin:0 0 16px 0; }
+
+  .meta{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+  .pill{
+    background:rgba(255,255,255,0.03);
+    padding:8px 10px; border-radius:999px; font-weight:600; font-size:.9rem;
+  }
+
+  .actions{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
+  .btn{
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));
+    color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:700;
+  }
+  .btn.secondary{ background:transparent; border:1px solid rgba(255,255,255,0.08); font-weight:600; }
+
+  .details h3{ color:var(--accent1); margin-top:0; }
+  .details p{ margin:8px 0; color:var(--muted); }
+
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+  .feature{ background:rgba(255,255,255,0.02); padding:12px; border-radius:8px; font-weight:600; }
+
+  table{ width:100%; border-collapse:collapse; margin-top:14px; color:var(--muted); }
+  table td{ padding:10px 8px; vertical-align:top; border-top:1px dashed rgba(255,255,255,0.03); }
+  table tr:first-child td{ border-top:none }
+
+  .map iframe{ width:100%; height:220px; border:0; border-radius:10px; }
+
+  @media (max-width:900px){ .hero{ grid-template-columns:1fr } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <span class="logo" aria-hidden="true"></span>
+    <h1>Tiptur Health Care Hub</h1>
+  </div>
+  <div class="links">
+    <a href="2.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="3.html">Dashboard</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="hero">
+    <!-- Left column -->
+    <article class="card">
+      <h2 class="hospital-title">Balaji Hospital, Tiptur</h2>
+      <p class="subtitle">Private healthcare · General and speciality care</p>
+
+      <div class="meta">
+        <div class="pill">🏥 Multispeciality</div>
+        <div class="pill">⏱ 24×7 Emergency</div>
+        <div class="pill">🧪 Diagnostics</div>
+      </div>
+
+      <div class="details">
+        <h3>Overview</h3>
+        <p>
+          Balaji Hospital in Tiptur offers quality healthcare services including general medicine, surgery, diagnostics, 
+          and emergency care, supported by skilled doctors and modern medical facilities.
+        </p>
+
+        <h3>Key Services</h3>
+        <div class="grid-2">
+          <div class="feature">General Medicine</div>
+          <div class="feature">Surgery</div>
+          <div class="feature">Orthopaedics</div>
+          <div class="feature">Maternity Care</div>
+          <div class="feature">Diagnostics</div>
+          <div class="feature">Emergency Care</div>
+        </div>
+
+        <h3>Contact & Timings</h3>
+        <table>
+          <tr><td><strong>Address</strong></td><td>B.H. Road, Tiptur, Karnataka 572201</td></tr>
+          <tr><td><strong>Phone</strong></td><td></td>+91-8134252250</tr>
+          <tr><td><strong>Email</strong></td><td>balajihospital@gmail.com</td></tr>
+          <tr>
+            <td><strong>Timings</strong></td>
+            <td>
+              Emergency: 24×7<br>
+              OPD (Mon–Sat): 9:00 AM – 1:00 PM, 5:00 PM – 8:00 PM<br>
+              Sunday: Emergency only
+            </td>
+          </tr>
+        </table>
+
+        <div class="actions">
+          <a class="btn" href="tel:+91-8134252250">📞 Call Now</a>
+          <a class="btn" href="tel:+91-7942682324">📞 Emergency Call</a>
+          <a class="btn secondary" href="3.html">◀ Back to Dashboard</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Right column -->
+    <aside class="card">
+      <h3 style="color:var(--accent1)">Location</h3>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps?q=Balaji+Hospital+Tiptur&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer style="text-align:center;padding:20px 0;color:rgba(255,255,255,0.7);">
+  © 2025 Tiptur Health Care Hub — Balaji Hospital profile
+</footer>
+
+</body>
+</html>

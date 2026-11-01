@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareConnect – Dashboard & Offline GPS Finder</title>
+<link rel="manifest" href="/static/manifest.json">
+<link rel="stylesheet" href="/static/css/style.css">
+<style>
+  body { display: block; height: auto; min-height: 100vh; margin: 0; align-items: initial; justify-content: initial; font-family: 'Segoe UI', Tahoma, sans-serif; background: radial-gradient(circle at top, #0b1e36, #020c1b); color: white; }
+  nav { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px 24px; box-shadow: 0 0 15px rgba(0,198,255,0.2); }
+  nav h1 { color: #00c6ff; font-size: 1.5rem; margin: 0; }
+  nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; transition: color 0.3s; white-space: nowrap; }
+  nav a:hover { color: #00c6ff; }
+  .container { width: min(1440px, calc(100% - 40px)); max-width: none; margin: 0 auto; padding: 28px 0; box-sizing: border-box; }
+  h2 { color: #00c6ff; margin-bottom: 15px; }
+  .search-box { margin-bottom: 15px; }
+  .search-box input { width: 100%; box-sizing: border-box; padding: 12px 16px; border-radius: 10px; border: 1px solid rgba(0, 198, 255, 0.3); background: rgba(255,255,255,0.05); color: white; font-size: 1rem; outline: none; }
+  .search-box input:focus { border-color: #00c6ff; box-shadow: 0 0 12px rgba(0,198,255,0.4); }
+  #hospitalGrid.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 22px; width: 100%; }
+  #hospitalGrid .hospital-card, #hospitalGrid > .card { min-width: 0; min-height: 220px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
+  #hospitalGrid .card-actions { margin-top: auto; flex-wrap: wrap; }
+  #hospitalGrid .card-header h3 { line-height: 1.35; overflow-wrap: anywhere; }
+  @media (max-width: 980px) { #hospitalGrid.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 620px) { .container { width: calc(100% - 28px); padding: 20px 0; } #hospitalGrid.grid { grid-template-columns: 1fr; gap: 15px; } nav { padding: 14px 18px; } nav > div { display: flex; flex-wrap: wrap; gap: 10px 14px; } nav a { margin-left: 0; } }
+  .card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 20px; box-shadow: 0 0 15px rgba(0,198,255,0.2); border: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 0 25px rgba(0,198,255,0.45); }
+  .card h3 { margin-top: 0; color: #00c6ff; }
+  .card p { line-height: 1.4; font-size: 0.95rem; opacity: 0.9; }
+  .card a { color: #00c6ff; text-decoration: none; }
+  .card a:hover { text-decoration: underline; }
+  footer { text-align: center; padding: 20px; font-size: 0.9rem; opacity: 0.7; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+</style>
+</head>
+<body>
+<nav>
+  <h1>CareConnect</h1>
+  <div>
+    <a href="2.html">🏠 Home</a>
+    <a href="about.html">ℹ About Us</a>
+    <a href="3.html">📊 Dashboard</a>
+    <a href="logout" style="color: #ff7575;">🚪 Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+  <!-- Live Online/Offline & Hackathon Demo Mode Banner -->
+  <div id="hubStatusBanner" class="hub-status-container"></div>
+
+  <h2>Hospitals & Clinics Directory</h2>
+
+  <!-- Search & Filter Controls -->
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search hospital name, specialty (e.g. eye, cardiology, dental, emergency), or address...">
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-tags">
+      <label class="filter-checkbox">
+        <input type="checkbox" id="filterEmergency">
+        <span>⚡ 24×7 Emergency Only</span>
+      </label>
+      <label class="filter-checkbox">
+        <input type="checkbox" id="filterIcu">
+        <span>🏥 ICU Equipped Only</span>
+      </label>
+    </div>
+    <div>
+      <button class="btn-chip" onclick="window.Voice.open()">🎙️ Voice Assistant</button>
+    </div>
+  </div>
+
+  <!-- Offline Radar Map Canvas (Works 100% without internet or Google Maps) -->
+  <div id="offlineRadarContainer"></div>
+
+  <!-- Hospital Grid (Progressively enriched with real-time GPS distances) -->
+  <div class="grid" id="hospitalGrid">
+    <div class="card"><h3><a href="hospital.html">Shridevi Hospital</a></h3><p>Sira Road, Tumakuru. 24×7 multispecialty care.</p></div>
+    <div class="card"><h3><a href="vaibhavi.html">Vaibhavi Multi Speciality Hospital</a></h3><p>Arasikere Road. Full-service multispecialty.</p></div>
+    <div class="card"><h3><a href="mudra-hospital.html">Mudra Hospital</a></h3><p>KR Extension, 3rd Main Road. Multi-specialty nursing home.</p></div>
+    <div class="card"><h3><a href="venkateshwara.html">Sri Venkateshwara Hospital</a></h3><p>Vinayaka Nagar Cross. General & healthcare services.</p></div>
+    <div class="card"><h3><a href="govt-hospital.html">Government General Hospital</a></h3><p>Tiptur Bazaar. Public hospital, 24×7 services.</p></div>
+    <div class="card"><h3><a href="kumar.html">Kumar Hospital</a></h3><p>Coronation Road Cross. 45 years in service.</p></div>
+    <div class="card"><h3><a href="ss-hospital.html">S.S. Multispeciality Hospital</a></h3><p>Tiptur. General multispecialty facility.</p></div>
+    <div class="card"><h3><a href="sunanda-eye.html">Sunanda Eye Hospital</a></h3><p>Near Hassan Circle. Eye care specialists.</p></div>
+    <div class="card"><h3><a href="shekhar-hospital.html">Shekhar Hospital</a></h3><p>Near Hassan Circle, NH-206. ICU & surgery capabilities.</p></div>
+    <div class="card"><h3><a href="jenukal-nursing.html">Jenukal Nursing Home</a></h3><p>Railway Station Road. OPD & inpatient nursing home.</p></div>
+    <div class="card"><h3><a href="balaji-hospital.html">Balaji Hospital</a></h3><p>KR Extension. General hospital.</p></div>
+    <div class="card"><h3><a href="jyothi-nethralaya.html">Jyothi Nethralaya</a></h3><p>Rama Mandir Road. Eye care clinic.</p></div>
+    <div class="card"><h3><a href="tiptur-dental.html">Tiptur Dental Clinic</a></h3><p>Police Lane, Mavinathopu. Dental care.</p></div>
+    <div class="card"><h3><a href="hemanth-dental.html">Hemanth Dental Clinic</a></h3><p>Railway Station Road. Dental services.</p></div>
+    <div class="card"><h3><a href="sannidhi-clinic.html">Sannidhi Clinic</a></h3><p>Mavinathopu. General clinic.</p></div>
+    <div class="card"><h3><a href="sri-ranga.html">Sri Ranga Hospital</a></h3><p>Mavinathopu. General hospital/clinic.</p></div>
+    <div class="card"><h3><a href="chethana-hospital.html">Chethana Hospital</a></h3><p>Mavinathopu. Clinic/hospital.</p></div>
+    <div class="card"><h3><a href="arogya-mandira.html">Arogya Mandira (Ayurvedic Clinic)</a></h3><p>KR Extension. Ayurvedic services.</p></div>
+    <div class="card"><h3><a href="ct-mudra.html">CT Centre & Mudra Hospital</a></h3><p>KR Extension. Diagnostics + Hospital.</p></div>
+  </div>
+</div>
+
+<!-- Floating Voice Assistant Trigger (ChatGPT Voice style) -->
+<div class="voice-floating-btn" onclick="window.Voice.open()" title="Open Voice Assistant">
+  <span class="voice-btn-inner">🎙️</span>
+</div>
+
+<!-- Fullscreen ChatGPT-like Conversational Voice Assistant Modal -->
+<div id="voiceAssistantModal" class="voice-modal">
+  <div class="voice-dialog">
+    <button class="voice-close-btn" onclick="window.tipturVoice.close()">✕</button>
+    
+    <div class="voice-topbar">
+      <div class="voice-title">
+        <span>✨Health Voice AI</span>
+      </div>
+      <div class="lang-toggle">
+        <button id="langBtnEn" class="lang-btn active" onclick="window.Voice.setLanguage('en-IN')">English</button>
+        <button id="langBtnKn" class="lang-btn" onclick="window.Voice.setLanguage('kn-IN')">ಕನ್ನಡ</button>
+      </div>
+    </div>
+
+    <!-- Animated Glowing Audio Voice Orb Canvas -->
+    <div id="voiceOrbContainer" class="voice-orb-wrapper mode-idle" onclick="window.tipturVoice.toggleListening()" title="Tap to Speak">
+      <canvas id="voiceOrbCanvas" width="200" height="200"></canvas>
+    </div>
+
+    <div id="voiceStateBadge" class="voice-state-badge">
+      <span class="pulse-dot cyan"></span> Ready
+    </div>
+
+    <div id="voiceTranscript" class="voice-transcript"></div>
+    <div id="voiceStatusMessage" class="voice-status-msg">
+      Tap the glowing orb to speak in English or Kannada (ಕನ್ನಡ)
+    </div>
+
+    <!-- Visual Hospital Card Preview -->
+    <div id="voiceMatchedCard" class="voice-matched-card"></div>
+
+    <!-- Sample Voice Prompts -->
+    <div id="voicePromptChips" class="voice-prompt-chips"></div>
+
+    <!-- Text input fallback inside voice modal -->
+    <div class="voice-input-row">
+      <input type="text" id="voiceTextInput" class="voice-text-input" placeholder="Or type your medical question here..." onkeypress="if(event.key==='Enter') window.tipturVoice.sendTypedQuery()">
+      <button class="voice-mic-btn" onclick="window.tipturVoice.toggleListening()">🎙️ Speak</button>
+      <button class="voice-send-btn" onclick="window.tipturVoice.sendTypedQuery()">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- Facility Detail Modal (Gubbi / Offline Profiles) -->
+<div id="facilityModal" class="facility-modal" onclick="if(event.target===this) window.tipturGps.closeFacilityDetails()">
+  <div id="facilityModalContent" class="facility-modal-box"></div>
+</div>
+
+<footer>
+  © 2025 Tiptur Health Care Hub. All rights reserved. • Offline GPS & Voice Assistant Enabled
+</footer>
+
+<!-- Scripts -->
+<script src="/static/js/offline-gps.js"></script>
+<script src="/static/js/voice-assistant.js"></script>
+</body>
+</html>

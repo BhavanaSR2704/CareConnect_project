@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CT Scan Centre — Tiptur</title>
+<style>
+  :root{
+    --bg1: #0b1e36;
+    --bg2: #020c1b;
+    --accent1: #00c6ff;
+    --accent2: #0072ff;
+    --glass: rgba(255,255,255,0.06);
+    --muted: rgba(255,255,255,0.85);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #fff;
+    background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+    line-height:1.5;
+  }
+
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 20px;
+    background: rgba(255,255,255,0.02);
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(6px);
+  }
+  nav .brand{ display:flex; align-items:center; gap:12px }
+  .logo{ width:40px; height:40px; border-radius:8px; background: linear-gradient(90deg,var(--accent1),var(--accent2)); }
+  nav h1{ margin:0; font-size:1rem; color:var(--accent1); }
+  nav .links a{ color:#fff; margin-left:18px; text-decoration:none; font-weight:600; }
+  nav .links a:hover{ color:var(--accent1) }
+
+  .wrap{ max-width:1100px; margin:28px auto; padding:0 18px; }
+  .hero{ display:grid; grid-template-columns: 1fr 360px; gap:20px; }
+
+  .card{
+    background: var(--glass);
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px);
+  }
+
+  .hospital-title{
+    font-size:1.6rem;
+    margin:0 0 8px 0;
+    background: linear-gradient(90deg,var(--accent1),var(--accent2));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .subtitle{ color: var(--muted); margin-bottom:16px; }
+
+  .meta{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+  .pill{ background: rgba(255,255,255,0.03); padding:8px 10px; border-radius:999px; font-weight:600; font-size:0.9rem; }
+
+  .actions{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
+  .btn{
+    background: linear-gradient(90deg,var(--accent1),var(--accent2));
+    color:#fff; padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn.secondary{ background:transparent; border:1px solid rgba(255,255,255,0.08); }
+
+  .details h3{ color:var(--accent1); margin-top:0; }
+  .details p{ margin:8px 0; color:var(--muted); }
+  .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px; }
+  .feature{ background: rgba(255,255,255,0.02); padding:12px; border-radius:8px; font-weight:600; }
+
+  table{ width:100%; border-collapse:collapse; margin-top:14px; color:var(--muted); }
+  table td{ padding:10px 8px; vertical-align:top; border-top:1px dashed rgba(255,255,255,0.03) }
+  table tr:first-child td{ border-top:none }
+
+  .map iframe{ width:100%; height:220px; border:0; border-radius:10px; }
+
+  @media(max-width:900px){ .hero{ grid-template-columns:1fr } .map iframe{ height:180px } }
+  @media(max-width:420px){ .hospital-title{ font-size:1.35rem } }
+
+  .muted{ color:rgba(255,255,255,0.78) }
+  .small{ font-size:0.92rem }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <span class="logo"></span>
+    <h1>CT Scan Centre</h1>
+  </div>
+  <div class="links">
+    <a href="2.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="3.html">Dashboard</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="hero">
+    <article class="card">
+      <h2 class="hospital-title">CT Scan Centre</h2>
+      <p class="subtitle">Diagnostic imaging · Advanced scanning · Expert radiologists</p>
+
+      <div class="meta">
+        <div class="pill">🩻 CT Scan</div>
+        <div class="pill">📅 Appointment Based</div>
+        <div class="pill">👨‍⚕️ Experienced Staff</div>
+      </div>
+
+      <div class="details">
+        <h3>Overview</h3>
+        <p>CT Scan Centre in Tiptur offers advanced diagnostic imaging services with modern CT scanning technology, accurate reporting, and skilled radiologists.</p>
+
+        <h3>Key Services</h3>
+        <div class="grid-2">
+          <div class="feature">CT Brain</div>
+          <div class="feature">CT Abdomen</div>
+          <div class="feature">CT Chest</div>
+          <div class="feature">Contrast Scans</div>
+          <div class="feature">3D Reconstruction</div>
+          <div class="feature">Digital Reports</div>
+        </div>
+
+        <h3>Contact & Timings</h3>
+        <table>
+          <tr><td><strong>Address</strong></td><td>Near Govt Hospital, Tiptur, Karnataka</td></tr>
+          <tr><td><strong>Phone</strong></td><td>08133-987654</td></tr>
+          <tr><td><strong>Email</strong></td><td>info@ctcentretiptur.com</td></tr>
+          <tr><td><strong>Timings</strong></td>
+              <td>
+                Mon–Sat: 9:00 AM – 8:00 PM<br>
+                Sunday: 10:00 AM – 2:00 PM
+              </td>
+          </tr>
+        </table>
+
+        <div class="actions">
+          <a class="btn" href="tel:08133987654">📞 Call Now</a>
+          <a class="btn" href="tel:08134250100">📞 Emergency call </a>
+          <a class="btn secondary" href="3.html">◀ Back to Dashboard</a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="card" style="display:flex;flex-direction:column;gap:14px;min-height:280px;">
+      <div>
+        <h3 style="color:var(--accent1)">Quick Facts</h3>
+        <p class="small muted">State-of-the-art CT scan facility with fast and accurate results.</p>
+        <div class="grid-2" style="margin-top:8px;">
+          <div class="feature">Modern Equipment</div>
+          <div class="feature">Experienced Radiologists</div>
+          <div class="feature">Digital Reports</div>
+          <div class="feature">Quick Turnaround</div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="color:var(--accent1)">Location</h3>
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.889758675614!2d76.4719!3d13.2603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbacf3e5b7d84f1%3A0xf31ffcc5e3a0405f!2sCT%20Scan%20Centre%2C%20Tiptur!5e0!3m2!1sen!2sin!4v1691736145000!5m2!1sen!2sin" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer style="text-align:center;padding:20px 0;color:rgba(255,255,255,0.7);">
+  © 2025 CT Scan Centre, Tiptur — Profile Page
+</footer>
+
+</body>
+</html>

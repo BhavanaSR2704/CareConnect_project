@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>S.S. Multispeciality Hospital — Tiptur</title>
+<style>
+  :root{
+    --bg1: #0b1e36;
+    --bg2: #020c1b;
+    --accent1: #00c6ff;
+    --accent2: #0072ff;
+    --glass: rgba(255,255,255,0.06);
+    --muted: rgba(255,255,255,0.85);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color:#fff;
+    background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 20px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0));
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(6px);
+  }
+  nav .brand{ display:flex; gap:12px; align-items:center; }
+  .logo{ width:40px; height:40px; border-radius:8px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); }
+  nav h1{ margin:0; font-size:1rem; letter-spacing:.2px; color:var(--accent1); }
+  nav .links a{ color:#fff; text-decoration:none; margin-left:18px; font-weight:600; opacity:.95; }
+  nav .links a:hover{ color:var(--accent1) }
+
+  .wrap{ max-width:1100px; margin:28px auto; padding:0 18px; }
+  .hero{ display:grid; grid-template-columns: 1fr 360px; gap:20px; align-items:start; }
+
+  .card{
+    background:var(--glass);
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px);
+  }
+
+  .hospital-title{
+    margin:0 0 8px 0;
+    font-size:1.6rem;
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    text-shadow:0 6px 20px rgba(255,107,107,0.06);
+  }
+  .subtitle{ color:var(--muted); margin:0 0 16px 0; }
+
+  .meta{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+  .pill{
+    background:rgba(255,255,255,0.03);
+    padding:8px 10px; border-radius:999px; font-weight:600; font-size:.9rem;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+
+  .actions{ display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
+  .btn{
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));
+    color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:700;
+    display:inline-flex; align-items:center; gap:8px; box-shadow:0 8px 30px rgba(255,107,107,0.12);
+  }
+  .btn.secondary{ background:transparent; border:1px solid rgba(255,255,255,0.08); font-weight:600; }
+
+  .details h3{ color:var(--accent1); margin-top:0; }
+  .details p{ margin:8px 0; color:var(--muted); }
+
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+  .feature{ background:rgba(255,255,255,0.02); padding:12px; border-radius:8px; font-weight:600; }
+
+  table{ width:100%; border-collapse:collapse; margin-top:14px; color:var(--muted); }
+  table td{ padding:10px 8px; vertical-align:top; border-top:1px dashed rgba(255,255,255,0.03); }
+  table tr:first-child td{ border-top:none }
+
+  .map iframe{ width:100%; height:220px; border:0; border-radius:10px; }
+
+  @media (max-width:900px){ .hero{ grid-template-columns:1fr } .map iframe{ height:180px } }
+  @media (max-width:420px){ .hospital-title{ font-size:1.35rem } }
+
+  .muted{ color:rgba(255,255,255,0.78) }
+  .small{ font-size:0.92rem }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <span class="logo" aria-hidden="true"></span>
+    <h1>Tiptur Health Care Hub</h1>
+  </div>
+  <div class="links">
+    <a href="2.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="3.html">Dashboard</a>
+  </div>
+</nav>
+
+<main class="wrap" role="main">
+  <section class="hero">
+    <!-- Left column -->
+    <article class="card">
+      <h2 class="hospital-title">S.S. Multispeciality Hospital, Tiptur</h2>
+      <p class="subtitle">Private healthcare · Advanced facilities · Multi-speciality</p>
+
+      <div class="meta">
+        <div class="pill">🏥 Multispeciality</div>
+        <div class="pill">⏱ 24×7 Emergency</div>
+        <div class="pill">💉 Critical Care Unit</div>
+      </div>
+
+      <div class="details">
+        <h3>Overview</h3>
+        <p>
+          S.S. Multispeciality Hospital in Tiptur offers modern healthcare with multiple speciality departments,
+          advanced diagnostics, and round-the-clock emergency services, ensuring comprehensive care for patients.
+        </p>
+
+        <h3>Key Services & Facilities</h3>
+        <div class="grid-2">
+          <div class="feature">General Medicine</div>
+          <div class="feature">Orthopaedics</div>
+          <div class="feature">Cardiology</div>
+          <div class="feature">Gynaecology</div>
+          <div class="feature">Paediatrics</div>
+          <div class="feature">Surgery & ICU</div>
+        </div>
+
+        <h3>Contact & Timings</h3>
+        <table>
+          <tr><td><strong>Address</strong></td><td>Near B.H. Road, Tiptur, Karnataka 572201</td></tr>
+          <tr><td><strong>Phone</strong></td><td>+91-9535289951</td></tr>
+          <tr><td><strong>Email</strong></td><td>ssmultispeciality@gmail.com</td></tr>
+          <tr>
+            <td><strong>Timings</strong></td>
+            <td>
+              Emergency: 24×7<br>
+              OPD (Mon–Sat): 9:00 AM – 1:00 PM, 4:00 PM – 8:00 PM<br>
+              Sunday: Emergency only
+            </td>
+          </tr>
+        </table>
+
+        <div class="actions">
+          <a class="btn" href="tel:08133000000">📞 Call Now</a>
+          <a class="btn" href="tel:+91-9535289951">📞 Emergency Call</a>
+          <a class="btn secondary" href="3.html">◀ Back to Dashboard</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Right column -->
+    <aside class="card" style="display:flex;flex-direction:column;gap:14px;min-height:280px;">
+      <div>
+        <h3 style="margin:0 0 8px 0;color:var(--accent1)">Quick Facts</h3>
+        <p class="small muted" style="margin:0 0 10px 0;">
+          A trusted private hospital with modern technology and multiple specialities under one roof.
+        </p>
+        <div class="grid-2" style="margin-top:8px;">
+          <div class="feature">24×7 Emergency</div>
+          <div class="feature">ICU Facility</div>
+          <div class="feature">Advanced Diagnostics</div>
+          <div class="feature">Specialist Doctors</div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin:10px 0 8px 0;color:var(--accent1)">Summary</h3>
+        <table>
+          <tr><td><strong>Type</strong></td><td>Private Multispeciality Hospital</td></tr>
+          <tr><td><strong>Specialities</strong></td><td>Medicine, Surgery, Orthopaedics, Cardiology</td></tr>
+          <tr><td><strong>Facilities</strong></td><td>ICU, OT, Diagnostics</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <h3 style="margin:10px 0 8px 0;color:var(--accent1)">Location</h3>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps?q=S.S.+Multispeciality+Hospital+Tiptur&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer style="text-align:center;padding:20px 0;color:rgba(255,255,255,0.7);">
+  © 2025 Tiptur Health Care Hub — S.S. Multispeciality Hospital profile
+</footer>
+
+</body>
+</html>

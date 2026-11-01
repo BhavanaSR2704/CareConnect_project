@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - CareConnect</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        background: radial-gradient(circle at top, #0b1e36, #020c1b);
+        color: white;
+    }
+
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+    }
+
+    header h1 {
+        font-size: 3rem;
+        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: glow 2s infinite alternate;
+    }
+
+    header p {
+        font-size: 1.2rem;
+        opacity: 0.8;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        border-radius: 25px;
+        box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+        transition: 0.3s ease;
+    }
+
+    nav a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px rgba(0, 198, 255, 1);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 30px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px 0;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 20px rgba(0, 198, 255, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(0, 198, 255, 0.5);
+    }
+
+    h2 {
+        color: #00c6ff;
+    }
+
+    p {
+        line-height: 1.6;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 50px;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 15px #00c6ff; }
+        to { text-shadow: 0 0 30px #00c6ff; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>About Us</h1>
+    <p>Connecting Tiptur’s healthcare to your fingertips</p>
+    <nav>
+        <a href="2.html">Home</a>
+        <a href="3.html">Dashboard</a>
+        <a href="logout">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Our Story</h2>
+        <p>
+            Born out of a simple idea during a community health camp in Tiptur, the Tiptur Health Care Hub was created to bridge the gap between local residents and healthcare providers. 
+            Many people in our town still rely on word of mouth to find the right hospital or specialist. We wanted to change that by creating a simple, reliable, and easy-to-use platform 
+            where anyone can instantly find updated hospital details, emergency numbers, and clinic locations.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>What We Do</h2>
+        <p>
+            We bring together a verified list of hospitals, clinics, pharmacies, and diagnostic centers in Tiptur. 
+            Our goal is to make sure that whether you are a resident, a visitor, or someone in an emergency situation, 
+            you can quickly access the medical help you need without confusion or delay.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Our Commitment</h2>
+        <p>
+            We are committed to keeping our data accurate and up to date. We personally reach out to local healthcare providers 
+            for the latest contact numbers, service hours, and special facilities they offer. We also aim to add features such as 
+            live appointment booking, ambulance tracking, and health awareness campaigns in the future.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Why Tiptur Health Care Hub?</h2>
+        <p>
+            Because healthcare should never be hard to find. We believe that every person in Tiptur deserves quick, transparent, 
+            and trustworthy access to medical services — and we are here to make that happen.
+        </p>
+    </div>
+</div>
+
+<footer>
+    © 2025 Tiptur Health Care Hub. All rights reserved.
+</footer>
+
+</body>
+</html>

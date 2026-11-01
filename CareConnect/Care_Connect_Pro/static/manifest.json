@@ -1,0 +1,17 @@
+{
+  "name": "CareConnect",
+  "short_name": "Care_Connect",
+  "description": "Comprehensive healthcare directory for Tiptur and Gubbi with Offline GPS Hospital Finder and AI Voice Assistant.",
+  "start_url": "/dashboard.html",
+  "display": "standalone",
+  "background_color": "#020c1b",
+  "theme_color": "#00c6ff",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300c6ff'/><path d='M50 20 L50 80 M20 50 L80 50' stroke='white' stroke-width='16' stroke-linecap='round'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

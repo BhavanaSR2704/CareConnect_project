@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kumar Hospital — Tiptur Health Care Hub</title>
+  <style>
+    /* Theme Variables */
+    :root {
+      --bg1: #0b1e36;
+      --bg2: #020c1b;
+      --accent1: #00c6ff;
+      --accent2: #0072ff;
+      --glass: rgba(255,255,255,0.06);
+      --muted: rgba(255,255,255,0.85);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+      line-height: 1.6;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0));
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+    }
+    nav h1 { color: var(--accent1); font-size: 1rem; margin: 0; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 600;
+      opacity: 0.95;
+    }
+    nav a:hover { color: var(--accent1); }
+    .wrap {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 0 16px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 20px;
+    }
+    .card {
+      background: var(--glass);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px);
+    }
+    .hospital-title {
+      margin-bottom: 8px;
+      font-size: 1.6rem;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 6px 20px rgba(0,198,255,0.06);
+    }
+    .subtitle { color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+    .meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    .pill {
+      background: rgba(255,255,255,0.03);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .details h3 { color: var(--accent1); margin-top: 0; }
+    .details p { margin: 8px 0; color: var(--muted); }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.02);
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      color: var(--muted);
+    }
+    table td {
+      padding: 10px 8px;
+      vertical-align: top;
+      border-top: 1px dashed rgba(255,255,255,0.03);
+    }
+    table tr:first-child td { border-top: none; }
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 8px 30px rgba(0,198,255,0.12);
+    }
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 600;
+    }
+    .map iframe {
+      height: 220px;
+      border-radius: 10px;
+      width:100%;
+      border:0; 
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <h1>Tiptur Health Care Hub</h1>
+  <div>
+    <a href="2.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="3.html">Dashboard</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="hero">
+    <!-- Main details -->
+    <article class="card">
+      <h2 class="hospital-title">Kumar Hospital</h2>
+      <p class="subtitle">Coronation Road Cross. 45 years in service, Tiptur</p>
+      <div class="meta">
+        <div class="pill">🏥like Multi-Speciality</div>
+        <div class="pill">⏱ Check below for operating hours</div>
+      </div>
+      <div class="details">
+        <h3>Overview</h3>
+        <p>
+          Located MST Road, at Coronation Road Cross, Tiptur – 572201, Karnataka — and is located near the Mallikarjuna Swamy Temple , Kumar hospital offers Malaria Treatment,ENT Problems,chest/lung issues,Pregnancy care,orthopedics,Emergency service.
+        </p>
+        <h3>Services & Facilities</h3>
+        <div class="grid-2">
+          <div class="feature">24×7 Emergency</div>
+          <div class="feature">Specializations(General Medicine,orthopedics)</div>
+          <div class="feature">In-Hospital Pharmacy</div>
+          <div class="feature">Malaria Treatment Provided</div>
+          <div class="feature">ENT Problems</div>
+          <div class="feature">chest/lung issues</div>
+          <div class="feature">Pregnancy care</div>
+          <div class="feature">orthopedics</div>
+
+        </div>
+        <h3>Contact & Location</h3>
+        <table>
+          <tr><td><strong>Address</strong></td><td>MST Road, at Coronation Road Cross, Tiptur – 572201, Karnataka — and is located near the Mallikarjuna Swamy Temple .</td></tr>
+          <tr><td><strong>Phone</strong></td><td>+91-7942679046</td></tr>
+        </table>
+        <h3>Timings</h3>
+        <p class="muted">
+          Monday–Saturday:24 hours a day<br>
+          Sunday:24 hours a day<br>
+          Emergency Services: Available 24×7
+        </p>
+        <div class="actions">
+          <a class="btn" href="tel:+91-7942679046">📞 Call Hospital</a>
+          <a class="btn" href="tel:+91-7383076851">📞 Call Emergency</a>
+          <a class="btn secondary" href="3.html">◀ Back to Dashboard</a>
+        </div>
+      </div>
+    </article>
+    <!-- Sidebar -->
+    <aside class="card">
+      <h3 style="color: var(--accent1); margin-top:0;">Quick Facts</h3>
+      <div class="grid-2">
+        <div class="feature">like Multi-Service Healthcare</div>
+        <div class="feature">Modern Medical Equipment</div>
+      </div>
+      <h3 style="margin-top:16px; color: var(--accent1);">Location</h3>
+      <div class="map">
+        Map placeholder — <iframe
+    src="https://www.google.com/maps?q=Kumar+Hospital+Tiptur&output=embed"
+    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen>
+  </iframe>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer style="text-align:center; padding:20px 0; color:rgba(255,255,255,0.7);">
+© 2025 Tiptur Health Care Hub — Kumar Hospital Profile
+</footer>
+</body>
+</html>
